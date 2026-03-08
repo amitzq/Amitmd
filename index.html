@@ -1,10 +1,7 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html><html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Birthday Surprise</title>
-
-<style>
+<title>Birthday Surprise</title><style>
 
 body{
 margin:0;
@@ -12,17 +9,16 @@ background:black;
 color:white;
 font-family:Arial;
 text-align:center;
-overflow:hidden;
 }
 
-/* start screen */
+/* start page */
 
 #start{
 height:100vh;
 display:flex;
 justify-content:center;
 align-items:center;
-font-size:30px;
+font-size:32px;
 cursor:pointer;
 }
 
@@ -41,7 +37,7 @@ padding:20px;
 
 img{
 width:85%;
-max-width:350px;
+max-width:340px;
 border-radius:15px;
 box-shadow:0 0 25px pink;
 margin-bottom:20px;
@@ -82,64 +78,25 @@ text-shadow:
 0 0 40px #ff2d75;
 }
 
-</style>
-</head>
+</style></head><body><div id="start" onclick="start()">Tap For Your Surprise ❤️</div><audio id="song" src="If The World Was Ending.mp3"></audio>
 
-<body>
+<!-- slide 1 --><div class="slide" id="slide1"><img src="Snapshot-1740021833.jpg"><button onclick="next()">Tap Next ➜</button>
 
-<div id="start" onclick="start()">Tap For Your Surprise ❤️</div>
+</div><!-- slide 2 --><div class="slide" id="slide2"><h1>Happy Birthday Cutiee ❤️‍🩹🧿🫶</h1><button onclick="next()">Tap Next ➜</button>
 
-<audio id="song" src="If The World Was Ending.mp3"></audio>
-
-<!-- Slide 1 -->
-
-<div class="slide" id="s1">
-
-<img src="./Snapshot-1740021833.jpg">
-
-<button onclick="next()">Tap Next ➜</button>
-
-</div>
-
-<!-- Slide 2 -->
-
-<div class="slide" id="s2">
-
-<h1>Happy Birthday Cutiee ❤️‍🩹🧿🫶</h1>
-
-<button onclick="next()">Tap Next ➜</button>
-
-</div>
-
-<!-- Slide 3 -->
-
-<div class="slide" id="s3">
-
-<p>
+</div><!-- slide 3 --><div class="slide" id="slide3"><p>
 Happy Birthday to someone  
 who once meant a lot to me.  
 Maybe we don’t talk like before,  
 but the memories are still special.  
 I wish your life becomes  
 full of happiness and success.  
-Stay blessed and keep smiling ❤️
-</p>
+Stay blessed and always smile ❤️
+</p><button onclick="next()">Tap Next ➜</button>
 
-<button onclick="next()">Tap Next ➜</button>
+</div><!-- slide 4 --><div class="slide" id="slide4"><h1 class="glow">Again Happy Birthday ❤️‍🩹🫶</h1></div><script>
 
-</div>
-
-<!-- Last Slide -->
-
-<div class="slide" id="s4">
-
-<h1 class="glow">Again Happy Birthday ❤️‍🩹🫶</h1>
-
-</div>
-
-<script>
-
-let current=1
+let current = 1
 
 function start(){
 
@@ -147,21 +104,19 @@ document.getElementById("start").style.display="none"
 
 document.getElementById("song").play()
 
-document.getElementById("s1").style.display="flex"
+document.getElementById("slide1").style.display="flex"
 
 }
 
 function next(){
 
-document.getElementById("s"+current).style.display="none"
+document.getElementById("slide"+current).style.display="none"
 
 current++
 
-document.getElementById("s"+current).style.display="flex"
+document.getElementById("slide"+current).style.display="flex"
 
 }
 
-</script>
-
-</body>
+</script></body>
 </html>
