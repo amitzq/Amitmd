@@ -2,6 +2,7 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Birthday Surprise</title><style>
+
 body{
 margin:0;
 background:black;
@@ -23,9 +24,9 @@ display:flex;
 }
 
 img{
-width:320px;
-border-radius:15px;
-box-shadow:0 0 20px pink;
+width:300px;
+border-radius:20px;
+box-shadow:0 0 25px pink;
 margin-bottom:20px;
 }
 
@@ -41,7 +42,7 @@ margin-top:20px;
 }
 
 h1{
-font-size:32px;
+font-size:34px;
 }
 
 p{
@@ -58,37 +59,35 @@ text-shadow:
 0 0 20px #ff2d75,
 0 0 40px #ff2d75;
 }
-</style></head><body><audio id="song">
-<source src="If The World Was Ending.mp3" type="audio/mpeg">
-</audio><!-- Slide 1 --><div class="slide active" id="s1"><h1>Tap For Your Surprise ❤️</h1><button onclick="start()">Tap Surprise</button>
 
-</div><!-- Slide 2 (Pic + Song) --><div class="slide" id="s2"><img src="Snapchat-1740021833.jpg"><button onclick="next()">Tap Next ➜</button>
+</style></head><body><audio id="song" src="song.mp3"></audio>
+
+<!-- Slide 1 --><div class="slide active" id="s1"><h1>Tap For Surprise ❤️</h1><button onclick="start()">Tap Surprise</button>
+
+</div><!-- Slide 2 --><div class="slide" id="s2"><img src="photo.jpg"><button onclick="next()">Tap Next ➜</button>
 
 </div><!-- Slide 3 --><div class="slide" id="s3"><h1>Happy Birthday Cutiee ❤️‍🩹🧿🫶</h1><button onclick="next()">Tap Next ➜</button>
 
 </div><!-- Slide 4 --><div class="slide" id="s4"><p>
-Happy Birthday to someone  
-who once meant a lot to me.  
-Maybe we don’t talk like before,  
-but memories are still special.  
-I wish your life becomes full  
-of happiness and success.  
-Stay blessed always ❤️
+Happy Birthday to someone who once meant a lot to me.  
+Maybe we don’t talk like before, but the memories are still special.  
+I wish your life becomes full of happiness and success.  
+May every day bring you joy and beautiful moments.  
+Stay blessed and keep smiling always ❤️
 </p><button onclick="next()">Tap Next ➜</button>
 
 </div><!-- Slide 5 --><div class="slide" id="s5"><h1 class="glow">Again Happy Birthday ❤️‍🩹🫶</h1></div><script>
 
-let current = 1
+let current=1
 
 function start(){
 
 document.getElementById("s1").classList.remove("active")
-
 document.getElementById("s2").classList.add("active")
 
 document.getElementById("song").play()
 
-current = 2
+current=2
 
 }
 
