@@ -12,8 +12,6 @@ text-align:center;
 overflow:hidden;
 }
 
-/* slide */
-
 .slide{
 display:none;
 height:100vh;
@@ -27,8 +25,6 @@ padding:20px;
 display:flex;
 }
 
-/* neon text */
-
 h1{
 font-size:48px;
 color:#ff4da6;
@@ -36,7 +32,7 @@ text-shadow:0 0 10px #ff4da6,0 0 30px #ff1493;
 }
 
 h2{
-font-size:42px;
+font-size:40px;
 color:#ff66cc;
 text-shadow:0 0 10px #ff66cc,0 0 30px #ff1493;
 }
@@ -47,15 +43,11 @@ line-height:1.7;
 max-width:750px;
 }
 
-/* image */
-
 img{
 width:75%;
 border-radius:20px;
 box-shadow:0 0 30px pink;
 }
-
-/* button */
 
 button{
 padding:14px 30px;
@@ -64,81 +56,44 @@ border:none;
 border-radius:25px;
 background:#ff1493;
 color:white;
-margin-top:25px;
-cursor:pointer;
-}
-
-/* hearts animation */
-
-.heart{
-position:absolute;
-bottom:-50px;
-font-size:25px;
-animation:float 6s linear infinite;
-}
-
-@keyframes float{
-0%{transform:translateY(0);opacity:1;}
-100%{transform:translateY(-110vh);opacity:0;}
+margin-top:20px;
 }
 
 </style></head><body><audio id="music" src="If The World Was Ending.mp3"></audio>
 
-<!-- slide 1 --><div class="slide active" id="s1"><h1>Tap For Your Surprise ❤️</h1><button onclick="next(2)">Tap</button>
+<!-- Tap screen --><div class="slide active" id="slide1"><h1>Tap For Your Surprise ❤️</h1><button onclick="start()">Tap</button>
 
-</div><!-- slide 2 photo --><div class="slide" id="s2"><img src="Snapchat-1740021833.jpg"><p>Music Playing 🎵</p><button onclick="next(3)">Next</button>
-
-</div><!-- slide 3 wish --><div class="slide" id="s3"><h2>Happy Birthday Cutieee 😚🫶❤️‍🩹</h2><p>
+</div><!-- Photo --><div class="slide" id="slide2"><img src="Snapchat-1740021833.jpg"><p>Music Playing 🎵</p></div><!-- Wish 1 --><div class="slide" id="slide3"><h2>Happy Birthday Cutieee 😚🫶❤️‍🩹</h2><p>
 Today is your special day.<br>
-I hope your life becomes beautiful.<br>
 May happiness always stay with you.<br>
 All your dreams come true.<br>
 Keep smiling always.<br>
 Stay blessed forever.<br>
 Enjoy your birthday 🎂
-</p><button onclick="next(4)">Next</button>
-
-</div><!-- slide 4 final wish --><div class="slide" id="s4"><h2>Again Happy Birthday 🧿🫶</h2><p>
+</p></div><!-- Wish 2 --><div class="slide" id="slide4"><h2>Again Happy Birthday 🧿🫶</h2><p>
 No matter the distance between us,<br>
 your memories still remain.<br>
 You were once very special to me.<br>
 I wish you endless happiness.<br>
-May success follow you always.<br>
-Stay happy forever ❤️<br>
-Enjoy your beautiful day 🎉
+Stay happy forever ❤️
 </p></div><script>
 
-function next(n){
-
+function show(n){
 document.querySelectorAll(".slide").forEach(s=>s.classList.remove("active"));
+document.getElementById("slide"+n).classList.add("active");
+}
 
-document.getElementById("s"+n).classList.add("active");
+function start(){
 
-if(n==2){
+show(2);
+
 document.getElementById("music").play();
-}
+
+setTimeout(()=>show(3),3000);
+
+setTimeout(()=>show(4),6000);
 
 }
-
-/* floating hearts */
-
-setInterval(()=>{
-
-let heart=document.createElement("div");
-
-heart.className="heart";
-
-heart.innerHTML="❤️";
-
-heart.style.left=Math.random()*100+"vw";
-
-heart.style.fontSize=(Math.random()*25+20)+"px";
-
-document.body.appendChild(heart);
-
-setTimeout(()=>heart.remove(),6000);
-
-},400);
 
 </script></body>
 </html>
