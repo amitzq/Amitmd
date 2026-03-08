@@ -42,24 +42,16 @@ padding:20px;
 display:flex;
 }
 
-/* typing */
+/* intro text */
 
-.typing{
-font-size:34px;
-border-right:3px solid white;
-white-space:nowrap;
-overflow:hidden;
-width:0;
-animation:typing 4s steps(30,end) forwards, blink .8s infinite;
+.intro1{
+font-size:28px;
+margin-bottom:10px;
 }
 
-@keyframes typing{
-from{width:0}
-to{width:100%}
-}
-
-@keyframes blink{
-50%{border-color:transparent}
+.intro2{
+font-size:32px;
+margin-bottom:25px;
 }
 
 /* photo */
@@ -87,7 +79,7 @@ margin-top:20px;
 /* glow */
 
 .glow{
-font-size:42px;
+font-size:40px;
 color:#ff4d6d;
 text-shadow:
 0 0 5px #ff4d6d,
@@ -122,22 +114,28 @@ padding:20px;
 
 </style></head><body><audio id="song" src="song.mp3"></audio>
 
-<!-- Slide 1 --><div class="slide active" id="s1"><h1 class="typing">For Someone Special ❤️</h1>
-<h2 class="typing" style="animation-delay:3s">I Made This For You</h2><button onclick="start()">Tap For Surprise</button>
+<!-- Slide 1 --><div class="slide active" id="s1"><div class="intro1">For Someone Special ❤️</div><div class="intro2">I Made This For You</div><button onclick="start()">Tap For Surprise</button>
 
 </div><!-- Slide 2 --><div class="slide" id="s2"><img src="photo.jpg"><button onclick="next()">Tap Next ➜</button>
 
 </div><!-- Slide 3 --><div class="slide" id="s3"><h1 class="glow">Happy Birthday Cutiee ❤️‍🩹🧿🫶</h1><button onclick="next()">Tap Next ➜</button>
 
 </div><!-- Slide 4 --><div class="slide" id="s4"><p>
-Happy Birthday to someone who once meant a lot to me.  
-Maybe we don’t talk like before, but the memories are still special.  
-I wish your life becomes full of happiness and success.  
-May every day bring you joy and beautiful moments.  
-Stay blessed and keep smiling always ❤️
+Even if we don’t talk like before,  
+you were once very special to me.  Your memories still make me smile,
+and today I just want to wish you
+a beautiful and happy life ahead.
+
+Happy Birthday 🎂
+
 </p><button onclick="next()">Tap Next ➜</button>
 
-</div><!-- Slide 5 --><div class="slide" id="s5"><h1 class="glow">Again Happy Birthday ❤️‍🩹🫶</h1></div><script>
+</div><!-- Slide 5 --><div class="slide" id="s5"><p>
+You deserve happiness,  
+peace and success in life. ❤️
+</p><button onclick="next()">Tap Next ➜</button>
+
+</div><!-- Slide 6 --><div class="slide" id="s6"><h1 class="glow">Again Happy Birthday ❤️‍🩹🫶</h1></div><script>
 
 let current=1
 
@@ -162,7 +160,7 @@ document.getElementById("s"+current).classList.add("active")
 
 }
 
-/* hearts animation */
+/* floating hearts */
 
 setInterval(function(){
 
