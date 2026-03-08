@@ -42,7 +42,7 @@ padding:20px;
 display:flex;
 }
 
-/* typing intro */
+/* typing */
 
 .typing{
 font-size:34px;
@@ -87,18 +87,43 @@ margin-top:20px;
 /* glow */
 
 .glow{
-font-size:40px;
+font-size:42px;
+color:#ff4d6d;
 text-shadow:
-0 0 5px #ff2d75,
-0 0 10px #ff2d75,
-0 0 20px #ff2d75,
-0 0 40px #ff2d75,
-0 0 80px #ff2d75;
+0 0 5px #ff4d6d,
+0 0 10px #ff4d6d,
+0 0 20px #ff4d6d,
+0 0 40px #ff4d6d,
+0 0 80px #ff4d6d;
+animation:glowpulse 2s infinite alternate;
+}
+
+@keyframes glowpulse{
+from{
+text-shadow:
+0 0 5px #ff4d6d,
+0 0 10px #ff4d6d,
+0 0 20px #ff4d6d;
+}
+to{
+text-shadow:
+0 0 10px #ff4d6d,
+0 0 20px #ff4d6d,
+0 0 40px #ff4d6d,
+0 0 80px #ff4d6d;
+}
+}
+
+p{
+font-size:22px;
+line-height:1.6;
+padding:20px;
 }
 
 </style></head><body><audio id="song" src="song.mp3"></audio>
 
-<!-- Slide 1 --><div class="slide active" id="s1"><h1 class="typing">For Someone Special ❤️</h1><button onclick="start()">Tap For Surprise</button>
+<!-- Slide 1 --><div class="slide active" id="s1"><h1 class="typing">For Someone Special ❤️</h1>
+<h2 class="typing" style="animation-delay:3s">I Made This For You</h2><button onclick="start()">Tap For Surprise</button>
 
 </div><!-- Slide 2 --><div class="slide" id="s2"><img src="photo.jpg"><button onclick="next()">Tap Next ➜</button>
 
@@ -137,7 +162,7 @@ document.getElementById("s"+current).classList.add("active")
 
 }
 
-/* floating hearts */
+/* hearts animation */
 
 setInterval(function(){
 
