@@ -1,33 +1,52 @@
 <!DOCTYPE html><html>
 <head>
 <meta charset="UTF-8">
-<title>Birthday Surprise</title><style>
+<title>Birthday Surprise</title><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Pacifico&display=swap" rel="stylesheet"><style>
 
 body{
 margin:0;
-font-family:Arial;
+font-family:'Poppins',sans-serif;
 text-align:center;
 background:black;
 color:white;
 overflow:hidden;
 }
 
-/* Neon glow text */
+/* BIG Neon Title */
 
-h1,h2,p{
+h1{
+font-family:'Pacifico',cursive;
+font-size:48px;
+color:#ff4da6;
 text-shadow:
-0 0 5px #ff4da6,
 0 0 10px #ff4da6,
 0 0 20px #ff4da6,
-0 0 40px #ff1a8c;
+0 0 40px #ff1a8c,
+0 0 80px #ff1a8c;
 }
 
-h1{font-size:36px;}
-h2{font-size:30px;}
+/* Birthday Title */
+
+h2{
+font-family:'Pacifico',cursive;
+font-size:42px;
+color:#ff66cc;
+text-shadow:
+0 0 10px #ff66cc,
+0 0 20px #ff66cc,
+0 0 40px #ff1493,
+0 0 80px #ff1493;
+}
+
+/* Text */
 
 p{
-font-size:20px;
-line-height:1.6;
+font-size:26px;
+line-height:1.7;
+max-width:800px;
+text-shadow:
+0 0 5px #ff4da6,
+0 0 10px #ff4da6;
 }
 
 /* Slides */
@@ -45,74 +64,72 @@ padding:20px;
 display:flex;
 }
 
+/* Image */
+
 img{
-max-width:75%;
-border-radius:20px;
-box-shadow:0 0 25px pink;
+max-width:80%;
+border-radius:25px;
+box-shadow:0 0 30px #ff4da6;
 }
 
 /* Button */
 
 button{
-padding:12px 25px;
-font-size:18px;
+padding:14px 30px;
+font-size:20px;
 border:none;
-border-radius:20px;
+border-radius:25px;
 background:#ff1a8c;
 color:white;
-margin-top:20px;
+margin-top:25px;
 box-shadow:0 0 10px #ff1a8c,0 0 20px #ff1a8c;
+cursor:pointer;
 }
 
-/* Floating hearts */
+/* Floating Hearts */
 
 .heart{
 position:absolute;
 bottom:-50px;
-font-size:20px;
-animation:float 8s linear infinite;
-color:#ff4da6;
+font-size:25px;
+animation:float 7s linear infinite;
 }
 
 @keyframes float{
 0%{
-transform:translateY(0) scale(1);
+transform:translateY(0);
 opacity:1;
 }
 100%{
-transform:translateY(-100vh) scale(1.5);
+transform:translateY(-110vh);
 opacity:0;
 }
 }
 
 </style></head><body><audio id="music" src="If The World Was Ending.mp3"></audio>
 
-<!-- First Screen --><div class="slide active" id="slide1">
-<h1>Tap For Your Surprise ❤️</h1>
-<button onclick="showSlide(2)">Tap</button>
-</div><!-- Photo + Song --><div class="slide" id="slide2">
-<img src="Snapchat-1740021833.jpg">
-<p>Your song is playing 🎵</p>
-<button onclick="showSlide(3)">Next</button>
-</div><!-- Birthday Wish --><div class="slide" id="slide3">
-<h2>Happy Birthday Cutieee 😚🫶❤️‍🩹</h2><p>
+<div class="slide active" id="slide1"><h1>Tap For Your Surprise ❤️</h1><button onclick="showSlide(2)">Tap</button>
+
+</div><div class="slide" id="slide2"><img src="Snapchat-1740021833.jpg"><p>Your song is playing 🎵</p><button onclick="showSlide(3)">Next</button>
+
+</div><div class="slide" id="slide3"><h2>Happy Birthday Cutieee 😚🫶❤️‍🩹</h2><p>
 Today is your special day.<br>
 I hope your life becomes beautiful.<br>
 May happiness always stay with you.<br>
 All your dreams come true.<br>
 Keep smiling always.<br>
-Stay blessed and happy.<br>
-Happy Birthday ❤️
+Stay blessed forever.<br>
+Enjoy your day 🎂
 </p><button onclick="showSlide(4)">Next</button>
 
-</div><!-- Final Wish --><div class="slide" id="slide4"><h2>Again Happy Birthday 🧿🫶</h2><p>
+</div><div class="slide" id="slide4"><h2>Again Happy Birthday 🧿🫶</h2><p>
 No matter the distance between us,<br>
 your memories still remain.<br>
 You were once very special to me.<br>
 I wish you endless happiness.<br>
-May your life be full of success.<br>
+May success always follow you.<br>
 Take care always.<br>
-Enjoy your beautiful day 🎂
+Stay happy forever ❤️
 </p></div><script>
 
 function showSlide(num){
@@ -127,7 +144,7 @@ document.getElementById("music").play();
 
 }
 
-/* Floating hearts generator */
+/* Heart animation */
 
 setInterval(()=>{
 
@@ -139,15 +156,17 @@ heart.innerHTML="❤️";
 
 heart.style.left=Math.random()*100+"vw";
 
-heart.style.fontSize=(Math.random()*20+15)+"px";
+heart.style.fontSize=(Math.random()*25+20)+"px";
 
 document.body.appendChild(heart);
 
 setTimeout(()=>{
-heart.remove();
-},8000);
 
-},500);
+heart.remove();
+
+},7000);
+
+},400);
 
 </script></body>
 </html>
