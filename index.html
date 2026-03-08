@@ -5,11 +5,29 @@
 
 body{
 margin:0;
-background:black;
+background:linear-gradient(180deg,#000000,#1a001a);
 color:white;
 font-family:Arial;
 text-align:center;
+overflow:hidden;
 }
+
+/* floating hearts */
+
+.heart{
+position:fixed;
+bottom:-10px;
+color:#ff4d6d;
+font-size:20px;
+animation:float 6s linear infinite;
+}
+
+@keyframes float{
+0%{transform:translateY(0);opacity:1}
+100%{transform:translateY(-100vh);opacity:0}
+}
+
+/* slides */
 
 .slide{
 display:none;
@@ -17,21 +35,26 @@ height:100vh;
 justify-content:center;
 align-items:center;
 flex-direction:column;
+padding:20px;
 }
 
 .active{
 display:flex;
 }
 
+/* image */
+
 img{
 width:300px;
 border-radius:20px;
-box-shadow:0 0 25px pink;
+box-shadow:0 0 30px #ff2d75;
 margin-bottom:20px;
 }
 
+/* buttons */
+
 button{
-padding:12px 28px;
+padding:12px 30px;
 font-size:18px;
 border:none;
 border-radius:30px;
@@ -41,6 +64,8 @@ cursor:pointer;
 margin-top:20px;
 }
 
+/* text */
+
 h1{
 font-size:34px;
 }
@@ -48,25 +73,25 @@ font-size:34px;
 p{
 font-size:22px;
 line-height:1.6;
-padding:20px;
 }
 
 .glow{
-font-size:40px;
+font-size:42px;
 text-shadow:
 0 0 5px #ff2d75,
 0 0 10px #ff2d75,
 0 0 20px #ff2d75,
-0 0 40px #ff2d75;
+0 0 40px #ff2d75,
+0 0 80px #ff2d75;
 }
 
 </style></head><body><audio id="song" src="song.mp3"></audio>
 
-<!-- Slide 1 --><div class="slide active" id="s1"><h1>Tap For Surprise ❤️</h1><button onclick="start()">Tap Surprise</button>
+<!-- Slide 1 --><div class="slide active" id="s1"><h1 class="glow">Tap For Surprise ❤️</h1><button onclick="start()">Tap Surprise</button>
 
 </div><!-- Slide 2 --><div class="slide" id="s2"><img src="photo.jpg"><button onclick="next()">Tap Next ➜</button>
 
-</div><!-- Slide 3 --><div class="slide" id="s3"><h1>Happy Birthday Cutiee ❤️‍🩹🧿🫶</h1><button onclick="next()">Tap Next ➜</button>
+</div><!-- Slide 3 --><div class="slide" id="s3"><h1 class="glow">Happy Birthday Cutiee ❤️‍🩹🧿🫶</h1><button onclick="next()">Tap Next ➜</button>
 
 </div><!-- Slide 4 --><div class="slide" id="s4"><p>
 Happy Birthday to someone who once meant a lot to me.  
@@ -100,6 +125,28 @@ current++
 document.getElementById("s"+current).classList.add("active")
 
 }
+
+/* floating hearts */
+
+setInterval(function(){
+
+let heart=document.createElement("div")
+
+heart.className="heart"
+
+heart.innerHTML="❤️"
+
+heart.style.left=Math.random()*100+"vw"
+
+heart.style.fontSize=(Math.random()*20+10)+"px"
+
+document.body.appendChild(heart)
+
+setTimeout(()=>{
+heart.remove()
+},6000)
+
+},300)
 
 </script></body>
 </html>
