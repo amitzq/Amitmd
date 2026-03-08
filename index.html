@@ -1,38 +1,27 @@
-<!DOCTYPE html><html>
+<!DOCTYPE html>
+<html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Birthday Surprise</title><style>
+<title>Birthday Surprise</title>
+
+<style>
 
 body{
 margin:0;
 background:black;
-font-family:Arial;
 color:white;
+font-family:Arial;
 text-align:center;
 overflow:hidden;
-}
-
-/* floating hearts */
-
-.heart{
-position:fixed;
-color:red;
-font-size:18px;
-animation:float 6s linear infinite;
-}
-
-@keyframes float{
-0%{transform:translateY(100vh)}
-100%{transform:translateY(-10vh)}
 }
 
 /* start screen */
 
 #start{
+height:100vh;
 display:flex;
 justify-content:center;
 align-items:center;
-height:100vh;
 font-size:30px;
 cursor:pointer;
 }
@@ -51,9 +40,9 @@ padding:20px;
 /* image */
 
 img{
-width:80%;
-max-width:320px;
-border-radius:20px;
+width:85%;
+max-width:350px;
+border-radius:15px;
 box-shadow:0 0 25px pink;
 margin-bottom:20px;
 }
@@ -61,8 +50,7 @@ margin-bottom:20px;
 /* text */
 
 h1{
-font-size:32px;
-margin:10px;
+font-size:34px;
 }
 
 p{
@@ -83,11 +71,10 @@ color:white;
 cursor:pointer;
 }
 
-/* neon glow */
+/* glow */
 
 .glow{
 font-size:40px;
-color:white;
 text-shadow:
 0 0 5px #ff2d75,
 0 0 10px #ff2d75,
@@ -95,25 +82,62 @@ text-shadow:
 0 0 40px #ff2d75;
 }
 
-</style></head><body><div id="start" onclick="start()">Tap For Your Surprise ❤️</div><audio id="song" src="If The World Was Ending.mp3"></audio>
+</style>
+</head>
 
-<!-- Slide 1 (Photo) --><div class="slide" id="s1"><img src="Snapshot-1740021833.jpg"><button onclick="next()">Tap Next ➜</button>
+<body>
 
-</div><!-- Slide 2 --><div class="slide" id="s2"><h1>Happy Birthday Cutiee ❤️‍🩹🧿🫶</h1><button onclick="next()">Tap Next ➜</button>
+<div id="start" onclick="start()">Tap For Your Surprise ❤️</div>
 
-</div><!-- Slide 3 --><div class="slide" id="s3"><p>
+<audio id="song" src="If The World Was Ending.mp3"></audio>
+
+<!-- Slide 1 -->
+
+<div class="slide" id="s1">
+
+<img src="./Snapshot-1740021833.jpg">
+
+<button onclick="next()">Tap Next ➜</button>
+
+</div>
+
+<!-- Slide 2 -->
+
+<div class="slide" id="s2">
+
+<h1>Happy Birthday Cutiee ❤️‍🩹🧿🫶</h1>
+
+<button onclick="next()">Tap Next ➜</button>
+
+</div>
+
+<!-- Slide 3 -->
+
+<div class="slide" id="s3">
+
+<p>
 Happy Birthday to someone  
-who once meant a lot to me.  Maybe we don’t talk like before,
-but the memories are still special.
+who once meant a lot to me.  
+Maybe we don’t talk like before,  
+but the memories are still special.  
+I wish your life becomes  
+full of happiness and success.  
+Stay blessed and keep smiling ❤️
+</p>
 
-I wish your life becomes
-full of happiness and success.
+<button onclick="next()">Tap Next ➜</button>
 
-Stay blessed and always smile ❤️
+</div>
 
-</p><button onclick="next()">Tap Next ➜</button>
+<!-- Last Slide -->
 
-</div><!-- Last Slide --><div class="slide" id="s4"><h1 class="glow">Again Happy Birthday ❤️‍🩹🫶</h1></div><script>
+<div class="slide" id="s4">
+
+<h1 class="glow">Again Happy Birthday ❤️‍🩹🫶</h1>
+
+</div>
+
+<script>
 
 let current=1
 
@@ -137,25 +161,7 @@ document.getElementById("s"+current).style.display="flex"
 
 }
 
-/* hearts animation */
+</script>
 
-setInterval(()=>{
-
-let h=document.createElement("div")
-
-h.className="heart"
-
-h.innerHTML="❤️"
-
-h.style.left=Math.random()*100+"vw"
-
-h.style.fontSize=(Math.random()*20+10)+"px"
-
-document.body.appendChild(h)
-
-setTimeout(()=>h.remove(),6000)
-
-},300)
-
-</script></body>
+</body>
 </html>
