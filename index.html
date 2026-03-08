@@ -1,16 +1,54 @@
-<!DOCTYPE html><html>
+<!DOCTYPE html>
+<html>
 <head>
-<meta charset="UTF-8">
-<title>Birthday Surprise</title><style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Birthday Surprise</title>
+
+<style>
 
 body{
 margin:0;
+padding:0;
 background:black;
-color:white;
 font-family:Arial;
+color:white;
 text-align:center;
 overflow:hidden;
 }
+
+/* love animation */
+
+.hearts{
+position:fixed;
+width:100%;
+height:100%;
+z-index:-1;
+}
+
+.heart{
+position:absolute;
+color:red;
+font-size:20px;
+animation:float 6s linear infinite;
+}
+
+@keyframes float{
+0%{transform:translateY(100vh)}
+100%{transform:translateY(-10vh)}
+}
+
+/* first screen */
+
+#start{
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+font-size:28px;
+cursor:pointer;
+}
+
+/* slides */
 
 .slide{
 display:none;
@@ -21,79 +59,131 @@ flex-direction:column;
 padding:20px;
 }
 
-.active{
-display:flex;
+img{
+width:260px;
+border-radius:20px;
+margin-bottom:20px;
 }
 
 h1{
-font-size:48px;
-color:#ff4da6;
-text-shadow:0 0 10px #ff4da6,0 0 30px #ff1493;
-}
-
-h2{
-font-size:40px;
-color:#ff66cc;
-text-shadow:0 0 10px #ff66cc,0 0 30px #ff1493;
+font-size:34px;
 }
 
 p{
-font-size:26px;
-line-height:1.7;
-max-width:750px;
+font-size:22px;
+line-height:1.6;
+max-width:90%;
 }
 
-img{
-width:75%;
-border-radius:20px;
-box-shadow:0 0 30px pink;
+/* neon glow */
+
+.glow{
+font-size:40px;
+color:#fff;
+text-shadow:
+0 0 5px #ff0080,
+0 0 10px #ff0080,
+0 0 20px #ff0080,
+0 0 40px #ff0080;
+animation:blink 1.5s infinite alternate;
 }
 
-button{
-padding:14px 30px;
-font-size:20px;
-border:none;
-border-radius:25px;
-background:#ff1493;
-color:white;
-margin-top:20px;
+@keyframes blink{
+from{opacity:1}
+to{opacity:0.6}
 }
 
-</style></head><body><audio id="music" src="If The World Was Ending.mp3"></audio>
+</style>
+</head>
 
-<!-- Tap screen --><div class="slide active" id="slide1"><h1>Tap For Your Surprise ❤️</h1><button onclick="start()">Tap</button>
+<body>
 
-</div><!-- Photo --><div class="slide" id="slide2"><img src="Snapchat-1740021833.jpg"><p>Music Playing 🎵</p></div><!-- Wish 1 --><div class="slide" id="slide3"><h2>Happy Birthday Cutieee 😚🫶❤️‍🩹</h2><p>
-Today is your special day.<br>
-May happiness always stay with you.<br>
-All your dreams come true.<br>
-Keep smiling always.<br>
-Stay blessed forever.<br>
-Enjoy your birthday 🎂
-</p></div><!-- Wish 2 --><div class="slide" id="slide4"><h2>Again Happy Birthday 🧿🫶</h2><p>
-No matter the distance between us,<br>
-your memories still remain.<br>
-You were once very special to me.<br>
-I wish you endless happiness.<br>
-Stay happy forever ❤️
-</p></div><script>
+<div class="hearts" id="hearts"></div>
 
-function show(n){
-document.querySelectorAll(".slide").forEach(s=>s.classList.remove("active"));
-document.getElementById("slide"+n).classList.add("active");
+<div id="start" onclick="startSurprise()">
+Tap For Your Surprise ❤️
+</div>
+
+<audio id="song" src="If The World Was Ending.mp3"></audio>
+
+<div class="slide" id="slide1">
+<img src="Snapshot-1740021833.jpg">
+<h1>Happy Birthday Cutiee ❤️‍🩹🧿🫶</h1>
+</div>
+
+<div class="slide" id="slide2">
+<p>
+Happy Birthday to someone who once meant a lot to me.  
+Maybe we don’t talk like before,  
+but the memories are still special.  
+I genuinely wish your life becomes  
+full of happiness, peace and success.  
+May you always smile and achieve  
+everything your heart desires. ❤️
+</p>
+</div>
+
+<div class="slide" id="slide3">
+<h1 class="glow">Happy Birthday Again 🎂</h1>
+</div>
+
+<script>
+
+function startSurprise(){
+
+document.getElementById("start").style.display="none"
+
+document.getElementById("song").play()
+
+showSlide(1)
+
 }
 
-function start(){
+function showSlide(n){
 
-show(2);
+let slides=document.getElementsByClassName("slide")
 
-document.getElementById("music").play();
+for(let i=0;i<slides.length;i++){
+slides[i].style.display="none"
+}
 
-setTimeout(()=>show(3),3000);
+slides[n-1].style.display="flex"
 
-setTimeout(()=>show(4),6000);
+setTimeout(()=>{
+if(n<slides.length){
+showSlide(n+1)
+}
+},4000)
 
 }
 
-</script></body>
+/* heart animation */
+
+function createHeart(){
+
+let heart=document.createElement("div")
+
+heart.classList.add("heart")
+
+heart.innerHTML="❤️"
+
+heart.style.left=Math.random()*100+"vw"
+
+heart.style.fontSize=(Math.random()*20+10)+"px"
+
+heart.style.animationDuration=(Math.random()*3+3)+"s"
+
+document.getElementById("hearts").appendChild(heart)
+
+setTimeout(()=>{
+heart.remove()
+},6000)
+
+}
+
+setInterval(createHeart,300)
+
+</script>
+
+</body>
 </html>
