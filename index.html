@@ -2,7 +2,6 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Birthday Surprise</title><style>
-
 body{
 margin:0;
 background:black;
@@ -11,26 +10,16 @@ font-family:Arial;
 text-align:center;
 }
 
-/* start screen */
-
-#start{
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-font-size:32px;
-cursor:pointer;
-}
-
-/* slides */
-
 .slide{
 display:none;
 height:100vh;
 justify-content:center;
 align-items:center;
 flex-direction:column;
-padding:20px;
+}
+
+.active{
+display:flex;
 }
 
 img{
@@ -40,17 +29,7 @@ box-shadow:0 0 20px pink;
 margin-bottom:20px;
 }
 
-h1{
-font-size:34px;
-}
-
-p{
-font-size:22px;
-line-height:1.6;
-}
-
 button{
-margin-top:25px;
 padding:12px 28px;
 font-size:18px;
 border:none;
@@ -58,6 +37,17 @@ border-radius:30px;
 background:#ff2d75;
 color:white;
 cursor:pointer;
+margin-top:20px;
+}
+
+h1{
+font-size:32px;
+}
+
+p{
+font-size:22px;
+line-height:1.6;
+padding:20px;
 }
 
 .glow{
@@ -68,45 +58,47 @@ text-shadow:
 0 0 20px #ff2d75,
 0 0 40px #ff2d75;
 }
+</style></head><body><audio id="song">
+<source src="If The World Was Ending.mp3" type="audio/mpeg">
+</audio><!-- Slide 1 --><div class="slide active" id="s1"><h1>Tap For Your Surprise ❤️</h1><button onclick="start()">Tap Surprise</button>
 
-</style></head><body><div id="start" onclick="startSurprise()">Tap For Surprise ❤️</div><audio id="song" src="If The World Was Ending.mp3"></audio>
+</div><!-- Slide 2 (Pic + Song) --><div class="slide" id="s2"><img src="Snapchat-1740021833.jpg"><button onclick="next()">Tap Next ➜</button>
 
-<!-- Slide 1 --><div class="slide" id="slide1"><img src="Snapshot-1740021833.jpg"><button onclick="nextSlide()">Tap Next ➜</button>
+</div><!-- Slide 3 --><div class="slide" id="s3"><h1>Happy Birthday Cutiee ❤️‍🩹🧿🫶</h1><button onclick="next()">Tap Next ➜</button>
 
-</div><!-- Slide 2 --><div class="slide" id="slide2"><h1>Happy Birthday Cutiee ❤️‍🩹🧿🫶</h1><button onclick="nextSlide()">Tap Next ➜</button>
-
-</div><!-- Slide 3 --><div class="slide" id="slide3"><p>
-Happy Birthday to someone who once meant a lot to me.  
+</div><!-- Slide 4 --><div class="slide" id="s4"><p>
+Happy Birthday to someone  
+who once meant a lot to me.  
 Maybe we don’t talk like before,  
-but the memories are still special.  
-I wish your life becomes full of happiness,  
-success and beautiful moments.  
-Stay blessed and keep smiling always ❤️
-</p><button onclick="nextSlide()">Tap Next ➜</button>
+but memories are still special.  
+I wish your life becomes full  
+of happiness and success.  
+Stay blessed always ❤️
+</p><button onclick="next()">Tap Next ➜</button>
 
-</div><!-- Last Slide --><div class="slide" id="slide4"><h1 class="glow">Again Happy Birthday ❤️‍🩹🫶</h1></div><script>
+</div><!-- Slide 5 --><div class="slide" id="s5"><h1 class="glow">Again Happy Birthday ❤️‍🩹🫶</h1></div><script>
 
-let current=1
+let current = 1
 
-function startSurprise(){
+function start(){
 
-document.getElementById("start").style.display="none"
+document.getElementById("s1").classList.remove("active")
 
-document.getElementById("slide1").style.display="flex"
-
-/* song start when pic appears */
+document.getElementById("s2").classList.add("active")
 
 document.getElementById("song").play()
 
+current = 2
+
 }
 
-function nextSlide(){
+function next(){
 
-document.getElementById("slide"+current).style.display="none"
+document.getElementById("s"+current).classList.remove("active")
 
 current++
 
-document.getElementById("slide"+current).style.display="flex"
+document.getElementById("s"+current).classList.add("active")
 
 }
 
