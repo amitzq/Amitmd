@@ -5,7 +5,7 @@
 
 body{
 margin:0;
-background:linear-gradient(180deg,#000000,#1a001a);
+background:linear-gradient(180deg,#000000,#33001a);
 color:white;
 font-family:Arial;
 text-align:center;
@@ -17,8 +17,8 @@ overflow:hidden;
 .heart{
 position:fixed;
 bottom:-10px;
-color:#ff4d6d;
 font-size:20px;
+color:#ff4d6d;
 animation:float 6s linear infinite;
 }
 
@@ -42,7 +42,27 @@ padding:20px;
 display:flex;
 }
 
-/* image */
+/* typing intro */
+
+.typing{
+font-size:34px;
+border-right:3px solid white;
+white-space:nowrap;
+overflow:hidden;
+width:0;
+animation:typing 4s steps(30,end) forwards, blink .8s infinite;
+}
+
+@keyframes typing{
+from{width:0}
+to{width:100%}
+}
+
+@keyframes blink{
+50%{border-color:transparent}
+}
+
+/* photo */
 
 img{
 width:300px;
@@ -51,7 +71,7 @@ box-shadow:0 0 30px #ff2d75;
 margin-bottom:20px;
 }
 
-/* buttons */
+/* button */
 
 button{
 padding:12px 30px;
@@ -64,19 +84,10 @@ cursor:pointer;
 margin-top:20px;
 }
 
-/* text */
-
-h1{
-font-size:34px;
-}
-
-p{
-font-size:22px;
-line-height:1.6;
-}
+/* glow */
 
 .glow{
-font-size:42px;
+font-size:40px;
 text-shadow:
 0 0 5px #ff2d75,
 0 0 10px #ff2d75,
@@ -87,7 +98,7 @@ text-shadow:
 
 </style></head><body><audio id="song" src="song.mp3"></audio>
 
-<!-- Slide 1 --><div class="slide active" id="s1"><h1 class="glow">Tap For Surprise ❤️</h1><button onclick="start()">Tap Surprise</button>
+<!-- Slide 1 --><div class="slide active" id="s1"><h1 class="typing">For Someone Special ❤️</h1><button onclick="start()">Tap For Surprise</button>
 
 </div><!-- Slide 2 --><div class="slide" id="s2"><img src="photo.jpg"><button onclick="next()">Tap Next ➜</button>
 
@@ -150,4 +161,3 @@ heart.remove()
 
 </script></body>
 </html>
-<!-- update -->
