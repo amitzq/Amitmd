@@ -11,18 +11,7 @@ font-family:Arial;
 text-align:center;
 }
 
-/* start page */
-
-#start{
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-font-size:32px;
-cursor:pointer;
-}
-
-/* slides */
+/* slide style */
 
 .slide{
 display:none;
@@ -33,20 +22,23 @@ flex-direction:column;
 padding:20px;
 }
 
+.active{
+display:flex;
+}
+
 /* image */
 
 img{
-width:85%;
-max-width:340px;
+width:300px;
 border-radius:15px;
-box-shadow:0 0 25px pink;
+box-shadow:0 0 20px pink;
 margin-bottom:20px;
 }
 
 /* text */
 
 h1{
-font-size:34px;
+font-size:32px;
 }
 
 p{
@@ -57,7 +49,7 @@ line-height:1.6;
 /* button */
 
 button{
-margin-top:25px;
+margin-top:30px;
 padding:12px 28px;
 font-size:18px;
 border:none;
@@ -67,10 +59,8 @@ color:white;
 cursor:pointer;
 }
 
-/* glow */
-
 .glow{
-font-size:40px;
+font-size:38px;
 text-shadow:
 0 0 5px #ff2d75,
 0 0 10px #ff2d75,
@@ -78,43 +68,34 @@ text-shadow:
 0 0 40px #ff2d75;
 }
 
-</style></head><body><div id="start" onclick="start()">Tap For Your Surprise ❤️</div><audio id="song" src="If The World Was Ending.mp3"></audio>
+</style></head><body><audio id="song" src="If The World Was Ending.mp3"></audio>
 
-<!-- slide 1 --><div class="slide" id="slide1"><img src="Snapshot-1740021833.jpg"><button onclick="next()">Tap Next ➜</button>
+<!-- slide 1 --><div class="slide active" id="slide1"><img src="photo.jpg"><button onclick="nextSlide()">Tap Next ➜</button>
 
-</div><!-- slide 2 --><div class="slide" id="slide2"><h1>Happy Birthday Cutiee ❤️‍🩹🧿🫶</h1><button onclick="next()">Tap Next ➜</button>
+</div><!-- slide 2 --><div class="slide" id="slide2"><h1>Happy Birthday Cutiee ❤️‍🩹🧿🫶</h1><button onclick="nextSlide()">Tap Next ➜</button>
 
 </div><!-- slide 3 --><div class="slide" id="slide3"><p>
-Happy Birthday to someone  
-who once meant a lot to me.  
+Happy Birthday to someone who once meant a lot to me.  
 Maybe we don’t talk like before,  
 but the memories are still special.  
-I wish your life becomes  
-full of happiness and success.  
-Stay blessed and always smile ❤️
-</p><button onclick="next()">Tap Next ➜</button>
+I wish your life becomes full of happiness,  
+success and beautiful moments.  
+Stay blessed and keep smiling always ❤️
+</p><button onclick="nextSlide()">Tap Next ➜</button>
 
 </div><!-- slide 4 --><div class="slide" id="slide4"><h1 class="glow">Again Happy Birthday ❤️‍🩹🫶</h1></div><script>
 
-let current = 1
-
-function start(){
-
-document.getElementById("start").style.display="none"
+let current=1
 
 document.getElementById("song").play()
 
-document.getElementById("slide1").style.display="flex"
+function nextSlide(){
 
-}
-
-function next(){
-
-document.getElementById("slide"+current).style.display="none"
+document.getElementById("slide"+current).classList.remove("active")
 
 current++
 
-document.getElementById("slide"+current).style.display="flex"
+document.getElementById("slide"+current).classList.add("active")
 
 }
 
