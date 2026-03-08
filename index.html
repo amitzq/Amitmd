@@ -11,7 +11,18 @@ font-family:Arial;
 text-align:center;
 }
 
-/* slide style */
+/* start screen */
+
+#start{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:32px;
+cursor:pointer;
+}
+
+/* slides */
 
 .slide{
 display:none;
@@ -22,23 +33,15 @@ flex-direction:column;
 padding:20px;
 }
 
-.active{
-display:flex;
-}
-
-/* image */
-
 img{
-width:300px;
+width:320px;
 border-radius:15px;
 box-shadow:0 0 20px pink;
 margin-bottom:20px;
 }
 
-/* text */
-
 h1{
-font-size:32px;
+font-size:34px;
 }
 
 p{
@@ -46,10 +49,8 @@ font-size:22px;
 line-height:1.6;
 }
 
-/* button */
-
 button{
-margin-top:30px;
+margin-top:25px;
 padding:12px 28px;
 font-size:18px;
 border:none;
@@ -60,7 +61,7 @@ cursor:pointer;
 }
 
 .glow{
-font-size:38px;
+font-size:40px;
 text-shadow:
 0 0 5px #ff2d75,
 0 0 10px #ff2d75,
@@ -68,13 +69,13 @@ text-shadow:
 0 0 40px #ff2d75;
 }
 
-</style></head><body><audio id="song" src="If The World Was Ending.mp3"></audio>
+</style></head><body><div id="start" onclick="startSurprise()">Tap For Surprise ❤️</div><audio id="song" src="If The World Was Ending.mp3"></audio>
 
-<!-- slide 1 --><div class="slide active" id="slide1"><img src="photo.jpg"><button onclick="nextSlide()">Tap Next ➜</button>
+<!-- Slide 1 --><div class="slide" id="slide1"><img src="Snapshot-1740021833.jpg"><button onclick="nextSlide()">Tap Next ➜</button>
 
-</div><!-- slide 2 --><div class="slide" id="slide2"><h1>Happy Birthday Cutiee ❤️‍🩹🧿🫶</h1><button onclick="nextSlide()">Tap Next ➜</button>
+</div><!-- Slide 2 --><div class="slide" id="slide2"><h1>Happy Birthday Cutiee ❤️‍🩹🧿🫶</h1><button onclick="nextSlide()">Tap Next ➜</button>
 
-</div><!-- slide 3 --><div class="slide" id="slide3"><p>
+</div><!-- Slide 3 --><div class="slide" id="slide3"><p>
 Happy Birthday to someone who once meant a lot to me.  
 Maybe we don’t talk like before,  
 but the memories are still special.  
@@ -83,19 +84,29 @@ success and beautiful moments.
 Stay blessed and keep smiling always ❤️
 </p><button onclick="nextSlide()">Tap Next ➜</button>
 
-</div><!-- slide 4 --><div class="slide" id="slide4"><h1 class="glow">Again Happy Birthday ❤️‍🩹🫶</h1></div><script>
+</div><!-- Last Slide --><div class="slide" id="slide4"><h1 class="glow">Again Happy Birthday ❤️‍🩹🫶</h1></div><script>
 
 let current=1
 
+function startSurprise(){
+
+document.getElementById("start").style.display="none"
+
+document.getElementById("slide1").style.display="flex"
+
+/* song start when pic appears */
+
 document.getElementById("song").play()
+
+}
 
 function nextSlide(){
 
-document.getElementById("slide"+current).classList.remove("active")
+document.getElementById("slide"+current).style.display="none"
 
 current++
 
-document.getElementById("slide"+current).classList.add("active")
+document.getElementById("slide"+current).style.display="flex"
 
 }
 
