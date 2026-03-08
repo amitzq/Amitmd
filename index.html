@@ -1,35 +1,33 @@
 <!DOCTYPE html><html>
 <head>
 <meta charset="UTF-8">
-<title>Birthday Surprise</title><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Pacifico&display=swap" rel="stylesheet"><style>
+<title>Birthday Surprise</title><link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;600&display=swap" rel="stylesheet"><style>
 
 body{
 margin:0;
-font-family:'Poppins',sans-serif;
-text-align:center;
 background:black;
 color:white;
+font-family:'Poppins',sans-serif;
+text-align:center;
 overflow:hidden;
 }
 
-/* BIG Neon Title */
+/* Neon title */
 
 h1{
 font-family:'Pacifico',cursive;
-font-size:48px;
-color:#ff4da6;
+font-size:55px;
+color:#ff2ea6;
 text-shadow:
-0 0 10px #ff4da6,
-0 0 20px #ff4da6,
-0 0 40px #ff1a8c,
-0 0 80px #ff1a8c;
+0 0 10px #ff2ea6,
+0 0 20px #ff2ea6,
+0 0 40px #ff0080,
+0 0 80px #ff0080;
 }
-
-/* Birthday Title */
 
 h2{
 font-family:'Pacifico',cursive;
-font-size:42px;
+font-size:45px;
 color:#ff66cc;
 text-shadow:
 0 0 10px #ff66cc,
@@ -38,15 +36,11 @@ text-shadow:
 0 0 80px #ff1493;
 }
 
-/* Text */
-
 p{
-font-size:26px;
+font-size:28px;
 line-height:1.7;
 max-width:800px;
-text-shadow:
-0 0 5px #ff4da6,
-0 0 10px #ff4da6;
+margin:auto;
 }
 
 /* Slides */
@@ -57,42 +51,39 @@ height:100vh;
 justify-content:center;
 align-items:center;
 flex-direction:column;
-padding:20px;
 }
 
 .active{
 display:flex;
 }
 
-/* Image */
-
 img{
 max-width:80%;
-border-radius:25px;
-box-shadow:0 0 30px #ff4da6;
+border-radius:20px;
+box-shadow:0 0 40px #ff2ea6;
 }
 
 /* Button */
 
 button{
-padding:14px 30px;
-font-size:20px;
+padding:15px 35px;
+font-size:22px;
 border:none;
-border-radius:25px;
-background:#ff1a8c;
+border-radius:30px;
+background:#ff2ea6;
 color:white;
-margin-top:25px;
-box-shadow:0 0 10px #ff1a8c,0 0 20px #ff1a8c;
+margin-top:30px;
+box-shadow:0 0 15px #ff2ea6,0 0 30px #ff2ea6;
 cursor:pointer;
 }
 
-/* Floating Hearts */
+/* Floating hearts */
 
 .heart{
 position:absolute;
 bottom:-50px;
-font-size:25px;
-animation:float 7s linear infinite;
+font-size:28px;
+animation:float 6s linear infinite;
 }
 
 @keyframes float{
@@ -108,18 +99,21 @@ opacity:0;
 
 </style></head><body><audio id="music" src="If The World Was Ending.mp3"></audio>
 
-<div class="slide active" id="slide1"><h1>Tap For Your Surprise ❤️</h1><button onclick="showSlide(2)">Tap</button>
-
-</div><div class="slide" id="slide2"><img src="Snapchat-1740021833.jpg"><p>Your song is playing 🎵</p><button onclick="showSlide(3)">Next</button>
-
-</div><div class="slide" id="slide3"><h2>Happy Birthday Cutieee 😚🫶❤️‍🩹</h2><p>
+<div class="slide active" id="slide1">
+<h1>Tap For Your Surprise ❤️</h1>
+<button onclick="showSlide(2)">Tap</button>
+</div><div class="slide" id="slide2">
+<img src="Snapchat-1740021833.jpg">
+<p>Your song is playing 🎵</p>
+<button onclick="showSlide(3)">Next</button>
+</div><div class="slide" id="slide3">
+<h2>Happy Birthday Cutieee 😚🫶❤️‍🩹</h2><p>
 Today is your special day.<br>
-I hope your life becomes beautiful.<br>
 May happiness always stay with you.<br>
 All your dreams come true.<br>
 Keep smiling always.<br>
 Stay blessed forever.<br>
-Enjoy your day 🎂
+Enjoy your beautiful day 🎂
 </p><button onclick="showSlide(4)">Next</button>
 
 </div><div class="slide" id="slide4"><h2>Again Happy Birthday 🧿🫶</h2><p>
@@ -127,8 +121,7 @@ No matter the distance between us,<br>
 your memories still remain.<br>
 You were once very special to me.<br>
 I wish you endless happiness.<br>
-May success always follow you.<br>
-Take care always.<br>
+May success follow you always.<br>
 Stay happy forever ❤️
 </p></div><script>
 
@@ -144,7 +137,7 @@ document.getElementById("music").play();
 
 }
 
-/* Heart animation */
+/* Hearts animation */
 
 setInterval(()=>{
 
@@ -160,11 +153,7 @@ heart.style.fontSize=(Math.random()*25+20)+"px";
 
 document.body.appendChild(heart);
 
-setTimeout(()=>{
-
-heart.remove();
-
-},7000);
+setTimeout(()=>heart.remove(),6000);
 
 },400);
 
